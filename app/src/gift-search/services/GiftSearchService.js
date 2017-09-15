@@ -2,62 +2,6 @@ function GiftSearchService($http, $q) {
 
   let sampleData = [
     {
-      "description":"Critical Reflection on Gay, Lesbian, and Transgender Muslims<br> <br> <strong>Zusammenfassung:</strong><br> <p> Presents an analysis of how Islamic scripture, jurisprudence, and Hadith, can not only accommodate a sexually sensitive Islam, but actively endorse it.</p><br> <br> <strong>Autor:</strong> Kugle, Scott Siraj al-Haqq <br> <table><tr> <td>Ausgabekennzeichen</td> <td>Englisch</td> </tr><tr> <td>Seitenangabe</td> <td>448 S.</td> </tr><tr> <td>Masse</td> <td>H23.3 cm x B15.7 cm x D2.9 cm 436 g</td> </tr><tr> <td>Erscheinungsjahr</td> <td>2010</td> </tr><tr> <td>Einband</td> <td>Kartonierter Einband (Kt)</td> </tr><tr> <td>EAN</td> <td>9781851687015</td> </tr><tr> <td>ISBN</td> <td>978-1-85168-701-5</td> </tr></table><br> <strong>vom Autor:</strong><br> <p> Scott Kugle is the first Muslim to publish widely on the issue of homosexuality and Islam. An independent research scholar in Islamic studies, he has previously held positions at Duke University, the University of Cape Town, and Swarthmore College.</p><br> <br>",
-      "ean":"9781851687015",
-      "price":3550,
-      "images":{
-        "highres":"https://cdn.siroop.ch/media/images/sized/ab/e0/dd/abe0dd9ad3514841c3361b736db41090.400x400.jpg",
-        "lowres":"https://cdn.siroop.ch/media/images/sized/ab/e0/dd/abe0dd9ad3514841c3361b736db41090.200x200.jpg",
-        "thumbnails":"https://cdn.siroop.ch/media/images/sized/ab/e0/dd/abe0dd9ad3514841c3361b736db41090.50x50.jpg"
-      },
-      "id":2828027,
-      "categories":[
-        "Geisteswissenschaften",
-        "Bücher",
-        "Medien & Unterhaltung"
-      ],
-      "sku":"2644255-A",
-      "name":"Homosexuality in Islam",
-      "url":"/medien-unterhaltung/buecher/geisteswissenschaften/homosexuality-in-islam-02644255",
-      "tags":[
-        "Bücher",
-        "Geisteswissenschaften",
-        "Medien & Unterhaltung"
-      ],
-      "l1_category_url":"/medien-unterhaltung",
-      "l2_category_url":"/medien-unterhaltung/buecher",
-      "l3_category_url":"/medien-unterhaltung/buecher/geisteswissenschaften",
-      "brand":"Oneworld Publications"
-    },
-    {
-      "description":"Neue Forschungsperspektiven zu Lebenssituationen von lesbischen, schwulen, bi-, trans- und intersexuellen Menschen 1933 bis 1945<br> <br> <strong>Zusammenfassung:</strong><br> <p> How did homosexual, bisexual, transsexual, and intersexual persons live during the Nazi era? What persecutory measures did they face? This compendium addresses these and other questions. A focus is placed on the police and justice system as well as political, administrative, and social repression.</p><br> <br> <strong>Autor:</strong> Schwartz, Michael (Hrsg.) <br> <table><tr> <td>Ausgabekennzeichen</td> <td>Deutsch</td> </tr><tr> <td>Seitenangabe</td> <td>144 S.</td> </tr><tr> <td>Masse</td> <td>H19.0 cm x B17.0 cm x D1.7 cm 194 g</td> </tr><tr> <td>Erscheinungsjahr</td> <td>2015</td> </tr><tr> <td>Einband</td> <td>Kartonierter Einband (Kt)</td> </tr><tr> <td>EAN</td> <td>9783486741896</td> </tr><tr> <td>ISBN</td> <td>978-3-486-74189-6</td> </tr></table><br> <strong>vom Autor:</strong><br> <p> Michael Schwartz, Institut für Zeitgeschichte München-Berlin, Abtlg. Berlin.</p><br> <br>",
-      "ean":"9783486741896",
-      "price":2190,
-      "images":{
-        "highres":"https://cdn.siroop.ch/media/images/sized/7f/5c/26/7f5c262f4d06b7713a3e50d5b727ef08.400x400.jpg",
-        "lowres":"https://cdn.siroop.ch/media/images/sized/7f/5c/26/7f5c262f4d06b7713a3e50d5b727ef08.200x200.jpg",
-        "thumbnails":"https://cdn.siroop.ch/media/images/sized/7f/5c/26/7f5c262f4d06b7713a3e50d5b727ef08.50x50.jpg"
-      },
-      "id":2879684,
-      "categories":[
-        "Geisteswissenschaften",
-        "Bücher",
-        "Medien & Unterhaltung"
-      ],
-      "sku":"2697296-A",
-      "name":"Homosexuelle im Nationalsozialismus",
-      "url":"/medien-unterhaltung/buecher/geisteswissenschaften/homosexuelle-im-nationalsozialismus-02697296",
-      "tags":[
-        "Bücher",
-        "Geisteswissenschaften",
-        "Medien & Unterhaltung"
-      ],
-      "l1_category_url":"/medien-unterhaltung",
-      "l2_category_url":"/medien-unterhaltung/buecher",
-      "l3_category_url":"/medien-unterhaltung/buecher/geisteswissenschaften",
-      "brand":"Gruyter, de Oldenbourg"
-    },
-    {
       "description":"\"Man hat ja immer so getan, als würde es uns nicht geben.\"<br> <br> <br> <br> <strong>Autor:</strong> Schmidt, Anne-Sophie <br> <table><tr> <td>Ausgabekennzeichen</td> <td>Deutsch</td> </tr><tr> <td>Seitenangabe</td> <td>20 S.</td> </tr><tr> <td>Masse</td> <td>H21.1 cm x B14.9 cm x D1.4 cm 45 g</td> </tr><tr> <td>Erscheinungsjahr</td> <td>2016</td> </tr><tr> <td>Einband</td> <td>Geheftet (Geh)</td> </tr><tr> <td>EAN</td> <td>9783668240117</td> </tr><tr> <td>ISBN</td> <td>978-3-668-24011-7</td> </tr></table><br> <br>",
       "ean":"9783668240117",
       "price":1950,

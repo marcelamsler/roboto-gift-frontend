@@ -24,6 +24,17 @@ md-toolbar h1 {
   margin: auto;
 }
 
+.md-card-image {
+  width: 200px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+md-list-item.md-no-proxy{
+  padding: 0 !important;
+}
+
 /* Sidenav area */
 
 md-list .md-button {
@@ -43,13 +54,10 @@ md-sidenav md-list {
 
 /* Primary content area */
 
-#content {
-  overflow: hidden;
-}
 
 #content {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 5px;
 }
 
@@ -140,4 +148,10 @@ span.name {
 
 .main-search-field {
   width: 100%;
+}
+
+@media (min-width: 600px) {
+  md-sidenav {
+    width: 250px;
+  }
 }
