@@ -4,7 +4,7 @@
  * @param $mdSidenav
  * @constructor
  */
-function AppController(UsersDataService, $mdSidenav) {
+function AppController($mdSidenav) {
   var self = this;
 
   self.selected     = null;
@@ -14,12 +14,12 @@ function AppController(UsersDataService, $mdSidenav) {
 
   // Load all registered users
 
-  UsersDataService
-        .loadAllUsers()
-        .then( function( users ) {
-          self.users    = [].concat(users);
-          self.selected = users[0];
-        });
+  // UsersDataService
+  //       .loadAllUsers()
+  //       .then( function( users ) {
+  //         self.users    = [].concat(users);
+  //         self.selected = users[0];
+  //       });
 
   // *********************************
   // Internal methods
@@ -41,4 +41,4 @@ function AppController(UsersDataService, $mdSidenav) {
   }
 }
 
-export default [ 'UsersDataService', '$mdSidenav', AppController ];
+export default [ '$mdSidenav', AppController ];

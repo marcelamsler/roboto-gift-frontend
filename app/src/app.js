@@ -6,9 +6,9 @@ import 'angular-aria';
 import 'angular-material';
 
 import AppController from 'src/AppController';
-import Users from 'src/users/Users';
+import GiftSearch from 'src/gift-search/GiftSearch';
 
-export default angular.module( 'starter-app', [ 'ngMaterial', Users.name ] )
+export default angular.module( 'starter-app', [ 'ngMaterial', GiftSearch.name ] )
   .config(($mdIconProvider, $mdThemingProvider) => {
     // Register the user `avatar` icons
     $mdIconProvider
