@@ -30,11 +30,14 @@
     <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
                 md-component-id="left" ng-click="app.toggleList()">
       <!-- Custom UsersList component -->
-      <users-list
-          users="app.users"
-          selected="app.selected"
-          on-selected="app.selectUser(user)">
-      </users-list>
+      <md-list>
+        <md-list-item>
+          <md-button >
+            <md-icon md-svg-icon="assets/svg/gift-icon.svg" class="avatar"></md-icon>
+            Search Gift
+          </md-button>
+        </md-list-item>
+      </md-list>
     </md-sidenav>
 
     <!-- Container #4 -->
