@@ -1,6 +1,6 @@
 // Load the custom app ES6 modules
 
-import GiftService from 'src/gift-search/services/GiftService';
+import GiftService from 'src/gift-search/services/GiftSearchService';
 
 import GiftResults from 'src/gift-search/components/GiftResults';
 import GiftSearchPanel from 'src/gift-search/components/GiftSearchPanel'
