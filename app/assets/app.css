@@ -131,3 +131,13 @@ span.name {
   font-size: 1.1em;
   padding-left: 5px;
 }
+
+.main-search-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.main-search-field {
+  width: 100%;
+}
