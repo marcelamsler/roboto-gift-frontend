@@ -5,6 +5,6 @@ export default {
   config : {
     bindings         : {  results: '<' },
     templateUrl      : 'src/gift-search/components/GiftResults.html',
-    controller       : [ '$mdBottomSheet', '$log', GiftResultsController ]
+    controller       : [ 'GiftSearchService', '$log', GiftResultsController ]
   }
 };

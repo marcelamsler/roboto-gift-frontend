@@ -1,6 +1,6 @@
 // Load the custom app ES6 modules
 
-import GiftService from 'src/gift-search/services/GiftSearchService';
+import GiftSearchService from 'src/gift-search/services/GiftSearchService';
 
 import GiftResults from 'src/gift-search/components/GiftResults';
 import GiftSearchPanel from 'src/gift-search/components/GiftSearchPanel'
@@ -10,4 +10,4 @@ export default angular
 .component(GiftResults.name, GiftResults.config)
 .component(GiftSearchPanel.name, GiftSearchPanel.config)
 
-.service("GiftService", GiftService);
+.service("GiftSearchService", GiftSearchService);

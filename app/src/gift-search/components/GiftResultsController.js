@@ -1,8 +1,11 @@
 class GiftResultsController {
 
-  constructor($mdBottomSheet, $log) {
-    this.$mdBottomSheet = $mdBottomSheet;
+  constructor(GiftSearchService, $log) {
     this.$log = $log;
+    GiftSearchService.getGiftRecommendations().then((results) => {
+      this.results = results;
+    })
   }
 }
+
 export default GiftResultsController;
