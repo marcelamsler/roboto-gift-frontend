@@ -43,8 +43,8 @@
     <!-- Container #4 -->
     <md-content flex id="content">
         <!-- Custom UserDetails component -->
-        <gift-search-panel send-search-request="app.sendLogin()"></gift-search-panel>
-        <personality-panel personality="app.personality"></personality-panel>
+        <gift-search-panel send-search-request="app.sendLogin(userName, password, targetUser, numberOfGifts)"></gift-search-panel>
+        <personality-panel ng-if="app.personality" personality="app.personality"></personality-panel>
         <gift-results results="app.results"></gift-results>
     </md-content>
 

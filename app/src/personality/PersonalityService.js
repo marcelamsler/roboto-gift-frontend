@@ -196,34 +196,7 @@ function PersonalityService($http, $q) {
         targetUser: targetUser,
       };
 
-      let relevantConsumptionPreferencesCategoryIds = ['consumption_preferences_shopping',
-        'consumption_preferences_health_and_activity',
-        'consumption_preferences_reading',
-        'consumption_preferences_music',
-        'consumption_preferences_movie'];
 
-      let excludedPreferenceIds = ['consumption_preferences_automobile_ownership_cost'];
-
-      let relevantConsumptionPreferences = exampleResponse.consumption_preferences.filter((consumptionPreferenceCategory) => {
-        return relevantConsumptionPreferencesCategoryIds.includes(consumptionPreferenceCategory.consumption_preference_category_id)
-      });
-
-      let likes = [];
-      let dislikes = [];
-      relevantConsumptionPreferences.forEach((consumptionPreferenceCategory) => {
-        consumptionPreferenceCategory.consumption_preferences.forEach((preference) => {
-          if (!excludedPreferenceIds.includes(preference.consumption_preference_id)) {
-            if (preference.score > 0) {
-              likes.push(preference);
-            } else {
-              dislikes.push(preference);
-            }
-          }
-        })
-      });
-
-      exampleResponse.dislikes = dislikes;
-      exampleResponse.likes = likes;
       //return $http.get(serverUrl, {params: searchParams}).then((response) => response.data);
       return $q.when(exampleResponse);
     },

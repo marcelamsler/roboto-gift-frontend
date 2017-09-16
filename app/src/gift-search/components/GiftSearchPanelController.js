@@ -6,7 +6,7 @@ class GiftSearchPanelController {
   }
 
   sendRequest() {
-    this.sendSearchRequest({username: this.username, password: this.userpassword, targetUser: this.targetuser, numberOfGifts: 3});
+    this.sendSearchRequest({userName: this.username, password: this.userpassword, targetUser: this.targetuser, numberOfGifts: 3});
   }
 
 }

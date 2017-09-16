@@ -143,6 +143,7 @@ li {
 
 li i {
     height: 40px;
+    margin-bottom: 10px;
 }
 .likely i {
     color: green;
