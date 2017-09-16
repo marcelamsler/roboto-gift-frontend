@@ -3,19 +3,19 @@ Here we have to provide a form to set your search data
 <md-content layout-padding>
     <md-input-container>
         <label>Your Username</label>
-        <input type="text" ng-model="user.name">
+        <input type="text" required name="name" ng-model="$ctrl.username">
     </md-input-container>
 
     <md-input-container>
         <label>Your Password</label>
-        <input type="password" ng-model="user.password">
+        <input type="password" ng-model="$ctrl.userpassword">
     </md-input-container>
 
     <md-input-container>
         <label>The Gifted One</label>
-        <input type="text" ng-model="target_user">
+        <input type="text" ng-model="$ctrl.targetuser">
     </md-input-container>
 
-    <md-button type="submit">Go!</md-button>
+    <md-button type="submit" ng-click="$ctrl.sendLogin()">Go!</md-button>
 
 </md-content>
