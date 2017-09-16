@@ -5,12 +5,8 @@ class GiftSearchPanelController {
     this.$log = $log;
   }
 
-  sendLogin() {
-
-    this.GiftSearchService.getGiftRecommendations(this.username, this.userpassword, this.targetuser, 3).then((response)=> {
-      console.log(response)
-    });
-
+  sendRequest() {
+    this.sendSearchRequest({username: this.username, password: this.userpassword, targetUser: this.targetuser, numberOfGifts: 3});
   }
 
 }

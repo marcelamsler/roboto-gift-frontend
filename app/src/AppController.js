@@ -4,41 +4,50 @@
  * @param $mdSidenav
  * @constructor
  */
-function AppController($mdSidenav) {
+function AppController(GiftSearchService, $interval) {
   var self = this;
 
-  self.selected     = null;
-  self.users        = [ ];
-  self.selectUser   = selectUser;
-  self.toggleList   = toggleUsersList;
+  let requestState = {
+    finished: 'finished',
+    notFinished: 'not_finished_yet'
+  };
+
+  self.selected = null;
+  self.users = [];
+  self.selectUser = selectUser;
+
 
   // Load all registered users
 
-  // UsersDataService
-  //       .loadAllUsers()
-  //       .then( function( users ) {
-  //         self.users    = [].concat(users);
-  //         self.selected = users[0];
-  //       });
+  self.sendLogin = function () {
+
+    GiftSearchService.getGiftRecommendations(this.username, this.userpassword, this.targetuser, 3).then((ticketNumber) => {
+      self.ticketNumber = ticketNumber;
+      let pollingPromise = $interval(() => {
+        console.log('start polling');
+        GiftSearchService.getRecommendationResults(self.ticketNumber).then((response) => {
+          if (response.status === requestState.finished) {
+            self.results = response.result[0];
+            $interval.cancel(pollingPromise);
+            console.log('polling-finished')
+          }
+        })
+      }, 1000);
+
+    });
+  };
 
   // *********************************
   // Internal methods
   // *********************************
 
   /**
-   * Hide or Show the 'left' sideNav area
-   */
-  function toggleUsersList() {
-    $mdSidenav('left').toggle();
-  }
-
-  /**
    * Select the current avatars
    * @param menuId
    */
-  function selectUser ( user ) {
+  function selectUser(user) {
     self.selected = angular.isNumber(user) ? $scope.users[user] : user;
   }
 }
 
-export default [ '$mdSidenav', AppController ];
+export default ['GiftSearchService', '$interval', AppController];

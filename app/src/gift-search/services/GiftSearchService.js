@@ -11,8 +11,12 @@ function GiftSearchService($http, $q) {
         numberOfGifts: numOfGift
       };
 
-      return $http.get(serverUrl, {params: searchParams}).then((response) => response.data);
+      return $http.post(serverUrl, {params: searchParams}).then((response) => response.data.ticket);
     },
+
+    getRecommendationResults: function (ticketNumber) {
+      return $http.get(serverUrl + 'get', {params: {id: ticketNumber}}).then((response) => response.data);
+    }
 
   };
 }
