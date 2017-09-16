@@ -1,28 +1,25 @@
 <md-content layout-padding>
     <md-card>
-        <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline">Search for Gifts</span>
-            </md-card-title-text>
-        </md-card-title>
         <md-card-content>
-            <md-input-container>
-                <label>Your Username</label>
-                <input type="text" required name="name" ng-model="$ctrl.username">
-            </md-input-container>
+            <div class="layout-row" layout-align="center"><h1>Get gift suggestions based on an Instagram Profile</h1></div>
+            <div class="layout-row">
+                <div layout="row" style="flex:1; margin-top: 50px; display: flex; flex-direction: row;margin-left: 70px;" layout-align="center">
+                    <div style="flex: 1"></div>
+                    <div style="flex:2">
+                        <img src="https://www.seeklogo.net/wp-content/uploads/2016/06/Instagram-logo.png" style="width: 52px;display: inline-block;margin-bottom: -10px;">
+                        <md-input-container style="width: 400px; margin-left:0">
+                            <label style="font-size: 19px;text-align: center;">Instagram Profile Name (e.g. chucknorris)</label>
+                            <input style="border-bottom-width: 3px;font-size: 19px;text-align: center; color: #03a9f4" type="text" ng-model="$ctrl.targetuser">
+                        </md-input-container>
+                    </div>
+                    <div style="flex: 1"></div>
+                </div>
+            </div>
 
-            <md-input-container>
-                <label>Your Password</label>
-                <input type="password" ng-model="$ctrl.userpassword">
-            </md-input-container>
+            <div class="layout-row" layout-align="center">
+                <md-button class="md-raised md-primary md-button md-ink-ripple pull-right" type="submit" ng-click="$ctrl.sendRequest()">Get suggestions now</md-button>
+            </div>
 
-            <md-input-container>
-                <label>The Gifted One</label>
-                <input type="text" ng-model="$ctrl.targetuser">
-            </md-input-container>
         </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button type="submit" ng-click="$ctrl.sendRequest()">Go!</md-button>
-        </md-card-actions>
     </md-card>
 </md-content>

@@ -4,7 +4,7 @@
  * @param $mdSidenav
  * @constructor
  */
-function AppController(GiftSearchService, $interval) {
+function AppController(GiftSearchService, $interval, $timeout) {
   var self = this;
 
   let requestState = {
@@ -12,29 +12,50 @@ function AppController(GiftSearchService, $interval) {
     notFinished: 'not_finished_yet'
   };
 
-  self.selected = null;
-  self.users = [];
-  self.selectUser = selectUser;
-
-
   // Load all registered users
 
   self.sendLogin = function (userName, password, targetUser, numberOfGifts) {
+    self.targetUser = targetUser;
+    self.results = null;
+    self.personality = null;
+    self.isLoading = true;
+    self.showFirstLoadingHint = true;
+    self.showSecondLoadingHint = false;
+
+    let hintPromise = $timeout(() => {
+      self.showFirstLoadingHint = false;
+      self.showSecondLoadingHint = true;
+    }, 40000);
 
     GiftSearchService.getGiftRecommendations(userName, password, targetUser, numberOfGifts).then((ticketNumber) => {
       self.ticketNumber = ticketNumber;
-      let pollingPromise = $interval(() => {
+
+      if (self.pollingPromise) {
+        $interval.cancel(self.pollingPromise);
+      }
+
+      self.pollingPromise = $interval(() => {
         console.log('start polling');
         GiftSearchService.getRecommendationResults(self.ticketNumber).then((response) => {
           if (response.status === requestState.finished) {
             self.results = response.result;
+            self.userInfo = response.userInfo;
 
-            $interval.cancel(pollingPromise);
-            self.personality = enhancePreferences(response.personality_result);
+            $interval.cancel(self.pollingPromise);
+            $timeout.cancel(hintPromise);
+            self.isLoading = false;
+            if (response.personality_result && response.personality_result.consumption_preferences) {
+              self.personality = enhancePreferences(response.personality_result);
+            }
           }
         })
-      }, 1000);
+      }, 3000);
 
+    }).catch(() => {
+      if (self.pollingPromise) {
+        $interval.cancel(self.pollingPromise);
+      }
+      $timeout.cancel(hintPromise);
     });
   };
 
@@ -53,11 +74,18 @@ function AppController(GiftSearchService, $interval) {
   function enhancePreferences(personality) {
     let relevantConsumptionPreferencesCategoryIds = ['consumption_preferences_shopping',
       'consumption_preferences_health_and_activity',
-      'consumption_preferences_reading',
-      'consumption_preferences_music',
-      'consumption_preferences_movie'];
+      'consumption_preferences_reading'];
 
-    let excludedPreferenceIds = ['consumption_preferences_automobile_ownership_cost'];
+    let excludedPreferenceIds = ['consumption_preferences_automobile_ownership_cost',
+      'consumption_preferences_spur_of_moment',
+      'consumption_preferences_credit_card_payment',
+      'consumption_preferences_influence_social_media',
+      'consumption_preferences_automobile_safety',
+      'consumption_preferences_influence_utility',
+      'consumption_preferences_influence_online_ads',
+      'consumption_preferences_influence_social_media',
+      'consumption_preferences_influence_family_members',
+      'consumption_preferences_credit_card_payment'];
 
     let relevantConsumptionPreferences = personality.consumption_preferences.filter((consumptionPreferenceCategory) => {
       return relevantConsumptionPreferencesCategoryIds.includes(consumptionPreferenceCategory.consumption_preference_category_id)
@@ -69,9 +97,9 @@ function AppController(GiftSearchService, $interval) {
       consumptionPreferenceCategory.consumption_preferences.forEach((preference) => {
         if (!excludedPreferenceIds.includes(preference.consumption_preference_id)) {
           preference.name = preference.name.replace(/Likely to/g, '...');
-          if (preference.score > 0) {
+          if (preference.score === 1) {
             likes.push(preference);
-          } else {
+          } else if (preference.score === 0) {
             dislikes.push(preference);
           }
         }
@@ -85,4 +113,4 @@ function AppController(GiftSearchService, $interval) {
   }
 }
 
-export default ['GiftSearchService', '$interval', AppController];
+export default ['GiftSearchService', '$interval', '$timeout', AppController];

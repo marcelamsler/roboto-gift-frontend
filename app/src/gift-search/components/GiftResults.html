@@ -1,23 +1,29 @@
 <md-content layout-xs="column" layout="row" layout-wrap>
     <div ng-repeat="result in $ctrl.results" flex-xs flex-gt-xs="33" layout="column">
-        <md-card>
-            <img ng-src="{{result.images.lowres}}" class="md-card-image">
-            <md-card-title>
-                <md-card-title-text style="height:64px; overflow: hidden; word-break: break-all;-webkit-hyphens: auto;
-   -moz-hyphens: auto;
-    -ms-hyphens: auto;
-        hyphens: auto;">
-                    <span class="md-headline">{{result.name}}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content style="height: 180px; overflow: hidden; background: linear-gradient(to top, #fff, rgba(255,255,255,0));">
-                <div ng-bind-html="result.description"></div>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="end">
-                <md-button class="md-icon-button" aria-label="Favorite" title="remove">
-                    <md-icon md-svg-icon="assets/svg/ic_remove_shopping_cart_black_24px.svg"></md-icon>
-                </md-button>
-            </md-card-actions>
-        </md-card>
+        <a ng-href="{{'http://www.siroop.ch' + result.url}}" target="_blank">
+            <md-card md-whiteframe="2"
+                     style="cursor: pointer"
+                     ng-mouseenter="result.hover = true"
+                     ng-mouseleave="result.hover = false"
+                     ng-class="{'_md md-whiteframe-6dp': result.hover}">
+                <img ng-src="{{result.images.lowres}}" class="md-card-image">
+                <md-card-title>
+                    <md-card-title-text style="height:36px; overflow: hidden;">
+                        <h3>{{result.name}}</h3>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <div style="height: 160px; overflow: hidden; background: linear-gradient(to top, #fff, rgba(255,255,255,0));">
+                        <div ng-bind-html="result.description"></div>
+                    </div>
+
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end">
+                    <div class="price" style="text-align: right">
+                        <span>CHF</span> <h2 style="display: inline">{{result.price / 100.0 | number:2}}</h2>
+                    </div>
+                </md-card-actions>
+            </md-card>
+        </a>
     </div>
 </md-content>

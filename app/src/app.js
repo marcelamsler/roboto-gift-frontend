@@ -16,5 +16,5 @@ export default angular.module('starter-app', ['ngMaterial', 'ngSanitize', GiftSe
     icon("google_plus", "./assets/svg/google_plus.svg", 24).icon("hangouts", "./assets/svg/hangouts.svg", 24).icon("twitter", "./assets/svg/twitter.svg", 24).
     icon("phone", "./assets/svg/phone.svg", 24);
 
-  $mdThemingProvider.theme('default').primaryPalette('brown').accentPalette('red');
+  $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('blue');
 }).controller('AppController', AppController);

@@ -2,19 +2,19 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Personality Analysis for {{$ctrl.personality.name}}</span>
+                <span class="md-headline" style="text-align:center">Helpful insights about <strong>{{$ctrl.userInfo.fullName}}</strong></span>
             </md-card-title-text>
         </md-card-title>
         <md-card-content>
             <div class="layout-row">
                 <div class="flex-30">
-                    <img ng-src="{{$ctrl.personality.image_url}}" style="width: 80%">
+                    <img ng-src="{{$ctrl.userInfo.profilePicUrl}}" style="width: 65%;margin: auto;">
                 </div>
                 <div class="flex-30">
                     <h3>Likely to</h3>
 
                     <ul class="likely">
-                        <li ng-repeat="like in $ctrl.personality.likes">
+                        <li ng-repeat="like in $ctrl.personality.likes | limitTo:4">
                             <i class="material-icons">thumb_up</i>
                             <div class="preference"> {{like.name}}</div>
                         </li>
@@ -24,7 +24,7 @@
                 <div class="flex-30">
                     <h3>Unlikely to</h3>
                     <ul class="unlikely">
-                        <li ng-repeat="dislike in $ctrl.personality.dislikes">
+                        <li ng-repeat="dislike in $ctrl.personality.dislikes | limitTo:4">
                             <i class="material-icons">thumb_down</i>
                             <div class="preference"> {{dislike.name}}</div>
                         </li>

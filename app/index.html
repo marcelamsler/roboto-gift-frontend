@@ -6,46 +6,37 @@
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
-    <title>Angular Material - Starter App</title>
+    <title>Roboto Gift</title>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css"/>
     <link rel="stylesheet" href="./assets/app.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body ng-cloak layout="column" ng-controller="AppController as app">
 
 <!-- Container #1 (see wireframe) -->
 <md-toolbar layout="row" class="md-toolbar-tools">
-    <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()" aria-label="Show User List">
-        <md-icon md-svg-icon="menu"></md-icon>
-    </md-button>
-    <h1>Angular Material - Starter App</h1>
+    <md-icon md-svg-icon="assets/svg/gift-icon.svg" style="width: 40px; height: 40px; margin-left: 5px; margin-right: 20px;"></md-icon>
+    <h1>Roboto Gift</h1>
 </md-toolbar>
 
 <!-- Container #2 -->
 <div flex layout="row">
 
-    <!-- Container #3 -->
-    <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" ng-click="app.toggleList()">
-        <!-- Custom UsersList component -->
-        <md-list>
-            <md-list-item>
-                <md-button>
-                    <md-icon md-svg-icon="assets/svg/gift-icon.svg" class="avatar"></md-icon>
-                    Search Gift
-                </md-button>
-            </md-list-item>
-        </md-list>
-    </md-sidenav>
-
     <!-- Container #4 -->
     <md-content flex id="content">
         <!-- Custom UserDetails component -->
         <gift-search-panel send-search-request="app.sendLogin(userName, password, targetUser, numberOfGifts)"></gift-search-panel>
-        <personality-panel ng-if="app.personality" personality="app.personality"></personality-panel>
-        <gift-results results="app.results"></gift-results>
+        <div layout="row" layout-sm="column" ng-show="app.isLoading" layout-align="space-around">
+            <h3 ng-show="app.showFirstLoadingHint"> We are currently parsing the Instagram profile of {{app.targetUser}}... This can take up to one minute, please wait...</h3>
+            <h3 ng-show="app.showSecondLoadingHint"> We are currently looking for matching products... please wait...</h3>
+        </div>
+        <div layout="row" layout-sm="column" ng-if="app.isLoading" layout-align="space-around">
+            <md-progress-circular ng-disabled="!app.isLoading" class="md-info md-hue-3" md-diameter="70"></md-progress-circular>
+        </div>
+        <personality-panel ng-if="app.personality" user-info="app.userInfo" personality="app.personality"></personality-panel>
+        <gift-results ng-if="app.results" results="app.results"></gift-results>
     </md-content>
 
 </div>

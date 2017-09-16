@@ -10,6 +10,11 @@ html, body {
     padding: 0px;
 }
 
+h1 {
+    font-weight: normal;
+    font-size: 36px;
+}
+
 /* Toolbar area */
 
 .menu {
@@ -24,9 +29,23 @@ md-toolbar h1 {
     margin: auto;
 }
 
+md-card md-card-title + md-card-content {
+    padding-bottom: 0;
+}
+
+a {
+    text-decoration: none!important;
+}
+
+a:hover {
+    text-decoration: none!important;
+}
+
+
 .md-card-image {
     width: 200px;
     height: auto;
+    margin-top: 5px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -145,6 +164,10 @@ li i {
     height: 40px;
     margin-bottom: 10px;
 }
+
+h3 {
+    color: #03a9f4;
+}
 .likely i {
     color: green;
 }
@@ -161,6 +184,11 @@ li i {
     padding-top: 5px;
 }
 
+
+md-input-container {
+    margin: 0 0;
+    margin-left: 35px;
+}
 span.name {
     font-weight: bold;
     font-size: 1.1em;
