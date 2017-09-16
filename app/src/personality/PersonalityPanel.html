@@ -1,0 +1,36 @@
+<md-content layout-padding>
+    <md-card>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Personality Analysis for {{$ctrl.personality.name}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <div class="layout-row">
+                <div class="flex-30">
+                    <img ng-src="{{$ctrl.personality.image_url}}" style="width: 80%">
+                </div>
+                <div class="flex-30">
+                    <h3>Likely to</h3>
+
+                    <ul class="likely">
+                        <li ng-repeat="like in $ctrl.personality.likes">
+                            <i class="material-icons">thumb_up</i>
+                            <div class="preference"> {{like.name}}</div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="flex-30">
+                    <h3>Unlikely to</h3>
+                    <ul class="unlikely">
+                        <li ng-repeat="dislike in $ctrl.personality.dislikes">
+                            <i class="material-icons">thumb_down</i>
+                            <div class="preference"> {{dislike.name}}</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</md-content>
