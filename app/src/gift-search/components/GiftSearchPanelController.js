@@ -11,7 +11,6 @@ class GiftSearchPanelController {
 
     }
 
-
 }
 
 export default GiftSearchPanelController;
