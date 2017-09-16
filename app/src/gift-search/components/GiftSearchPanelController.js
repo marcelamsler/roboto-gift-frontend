@@ -1,15 +1,17 @@
 class GiftSearchPanelController {
 
-    constructor(GiftSearchService, $mdBottomSheet, $log) {
-        this.$mdBottomSheet = $mdBottomSheet;
-        this.$log = $log;
-    }
+  constructor($log, GiftSearchService) {
+    this.GiftSearchService = GiftSearchService;
+    this.$log = $log;
+  }
 
-    sendLogin() {
+  sendLogin() {
 
-        GiftSearchService.getGiftRecommendations(this.username, this.userpassword, this.targetuser, 3);
+    this.GiftSearchService.getGiftRecommendations(this.username, this.userpassword, this.targetuser, 3).then((response)=> {
+      console.log(response)
+    });
 
-    }
+  }
 
 }
 
