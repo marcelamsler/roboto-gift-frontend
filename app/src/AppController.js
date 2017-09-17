@@ -23,7 +23,6 @@ function AppController(GiftSearchService, $interval, $timeout) {
     self.showSecondLoadingHint = false;
 
     let hintPromise = $timeout(() => {
-      self.showFirstLoadingHint = false;
       self.showSecondLoadingHint = true;
     }, 40000);
 

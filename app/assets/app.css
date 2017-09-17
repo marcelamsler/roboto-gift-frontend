@@ -15,6 +15,21 @@ h1 {
     font-size: 36px;
 }
 
+md-input-container.md-input-has-value label:not(.md-no-float), md-input-container.md-input-focused label:not(.md-no-float) {
+    transform: translate3d(54px, 6px, 0) scale(0.75) !important;
+}
+
+.profile-image {
+    width: 65%;
+    margin: auto;
+}
+
+@media (min-width: 1000px) {
+    .profile-image {
+        width: 42%;
+    }
+}
+
 /* Toolbar area */
 
 .menu {
@@ -34,13 +49,12 @@ md-card md-card-title + md-card-content {
 }
 
 a {
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 a:hover {
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
-
 
 .md-card-image {
     width: 200px;
@@ -168,6 +182,7 @@ li i {
 h3 {
     color: #03a9f4;
 }
+
 .likely i {
     color: green;
 }
@@ -175,6 +190,7 @@ h3 {
 .unlikely i {
     color: red;
 }
+
 .preference {
     display: inline-block;
     line-height: 15px;
@@ -184,11 +200,11 @@ h3 {
     padding-top: 5px;
 }
 
-
 md-input-container {
     margin: 0 0;
     margin-left: 35px;
 }
+
 span.name {
     font-weight: bold;
     font-size: 1.1em;
